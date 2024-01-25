@@ -17,3 +17,5 @@ vim.cmd([[
 require("keymaps.harpoon")
 require("keymaps.telescope")
 require("keymaps.neo-tree")
+require("keymaps.buffers")
+require("keymaps.windows")
