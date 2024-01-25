@@ -20,3 +20,13 @@ vim.opt.incsearch = true
 
 
 vim.opt.updatetime = 50
+
+-- setup copy color
+vim.cmd([[
+  augroup YankHighlight
+    autocmd!
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank({higroup='Search', timeout=250})
+  augroup END
+]])
+
+

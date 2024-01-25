@@ -19,10 +19,22 @@ return {
       "yaml",
     },
   },
----@param opts TSConfig
+
   config = function(_, opts)
     require("nvim-treesitter.configs").setup(opts)
   end,
   },
-{'nvim-treesitter/playground'},
+{
+        'nvim-treesitter/playground',
+
+        config = function ()
+            
+            --setup keymap
+            local opts = {noremap=true, silent=true}
+
+            opts.desc="Treesitter Playground" 
+            vim.keymap.set('n', '<leader>p', ':TSPlaygroundToggle<cr>', opts)
+        end,
+    },
+
   }
