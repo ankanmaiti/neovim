@@ -15,7 +15,8 @@ vim.cmd([[
 -- ************************************* Keymaps ********************************
 -- ~/.config/nvim/lua/settings/init.lua
 require("keymaps.harpoon")
-require("keymaps.telescope")
 require("keymaps.neo-tree")
 require("keymaps.buffers")
 require("keymaps.windows")
+require("keymaps.playground")
+require("keymaps.undotree")

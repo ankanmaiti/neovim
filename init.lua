@@ -15,3 +15,5 @@ vim.wo.relativenumber=true
 -- bootstrap lazy.nvim and plugins
 require("config.lazy")
 require("config.settings")
+require("config.editor")
+require("config.keymaps")

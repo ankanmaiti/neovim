@@ -12,15 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
-require("lazy").setup({
-
-	spec = {
-		{ import = "plugins" },
-	},
-	defaults = {
-    version = "*", -- always use the latest stable version,
-    },
-}
+require("lazy").setup({{ import = "plugins" }, {import="plugins.lsp"}}
 , {})
 
 vim.keymap.set('n', "<leader>l", ":Lazy<cr>", {desc="Lazy", noremap=true, silent=true})
