@@ -3,8 +3,8 @@ return {
 	version = "*", -- wait till new 0.7.0 release to put it back on semver
 	event = "VeryLazy",
 	opts = {
-		-- symbol = "▏",
-		symbol = "│",
+		symbol = "▏",
+		-- symbol = "│",
 		options = { try_as_border = true },
 	},
 	init = function()

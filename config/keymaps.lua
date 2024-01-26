@@ -29,4 +29,4 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
 
 -- Lazy Package Manager
 opts.desc = "Lazy"
-vim.keymap.set("n", "<leader>l", ":Lazy<cr>", opts)
+vim.keymap.set("n", "<leader>L", ":Lazy<cr>", opts)

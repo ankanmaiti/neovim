@@ -10,17 +10,16 @@ return {
     local mason_tool_installer = require("mason-tool-installer")
 
 		mason.setup({
-			ui = {
-				icons = {
-					package_installed = "✓",
-					package_pending = "➜",
-					package_uninstalled = "✗",
-				},
-			},
-		})
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗",
+        },
+      },
+    })
 
 		mason_lspconfig.setup({
-			-- list of servers ofr mason to install
 			ensure_installed = {
 				"tsserver",
 				"html",
@@ -46,7 +45,7 @@ return {
 		--set keymaps
 		local opts = { noremap = true, silent = true }
 		opts.desc = "Mason"
-		vim.keymap.set("n", "<leader>cm", ":Mason<cr>", opts)
+		vim.keymap.set("n", "<leader>cM", ":Mason<cr>", opts)
 
 	end,
 }
