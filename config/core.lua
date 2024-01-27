@@ -27,3 +27,4 @@ vim.cmd([[
     autocmd TextYankPost * silent! lua vim.highlight.on_yank({higroup='Search', timeout=250})
   augroup END
 ]])
+

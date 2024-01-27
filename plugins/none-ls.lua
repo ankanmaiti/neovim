@@ -1,5 +1,6 @@
 return {
   "nvimtools/none-ls.nvim",
+  version="*",
 
   config = function()
     local null_ls = require("null-ls")
