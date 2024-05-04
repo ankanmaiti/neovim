@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	{ import = "neovim.plugins" },
-	{ import = "neovim.plugins.lsp" },
+	{ import = "ankan-nvim.plugins" },
+	{ import = "ankan-nvim.plugins.lsp" },
 }, {})
+

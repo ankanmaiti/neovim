@@ -1,16 +1,16 @@
 local opts = { noremap = true, silent = true }
 
-local wk = require("which-key")
+-- local wk = require("which-key")
 
-wk.register({
-  f = { name = "Find/Files" },
-  b = { name = "Buffers" },
-  c = { name = "Code" },
-  cp = { name = "Playground" },
-  x = { name = "Diagonistics" },
-  n = { name = "Next Jump" },
-  p = { name = "Prev Jump" },
-}, { mode = "n", prefix = "<leader>" })
+-- wk.register({
+--   f = { name = "Find/Files" },
+--   b = { name = "Buffers" },
+--   c = { name = "Code" },
+--   cp = { name = "Playground" },
+--   x = { name = "Diagonistics" },
+--   n = { name = "Next Jump" },
+--   p = { name = "Prev Jump" },
+-- }, { mode = "n", prefix = "<leader>" })
 
 -- Navigate buffers
 opts.desc = "Next Buffer"

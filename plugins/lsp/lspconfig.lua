@@ -12,15 +12,10 @@ return {
     local keymap = vim.keymap
     local opts = { noremap = true, silent = true }
 
-    local on_attach = function(client, bufnr)
+    local on_attach = function(_, bufnr)
       opts.buffer = bufnr
 
       -- set keybinds
-      -- opts.desc = "Show LSP references"
-      -- keymap.set("n", "gR", "<cmd>Telescope lsp_references<cr>", opts)
-
-      -- opts.desc = "Go to Declaration"
-      -- keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 
       opts.desc = "Go to definitions"
       keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
@@ -47,10 +42,7 @@ return {
 
       opts.desc = "Show documentation on hover"
       keymap.set("n", "<leader>cd", vim.lsp.buf.hover, opts)
-      keymap.set('n', "<leader><leader>", vim.lsp.buf.hover, opts)
-
-      opts.desc = "Restart LSP"
-      keymap.set("n", "<leader>cR", ":LspRestart<cr>", opts)
+      keymap.set("n", "<leader><leader>", vim.lsp.buf.hover, opts)
     end
 
     -- used to enable autocompletion (assign to every lsp server config)
@@ -63,16 +55,26 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    -- configure html server
-    lspconfig["html"].setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
     -- configure tsserver server
     lspconfig["tsserver"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      commands = {
+
+        -- organize imports
+        OrganizeImports = {
+          function()
+            local params = {
+              command = "_typescript.organizeImports",
+              arguments = { vim.api.nvim_buf_get_name(0) },
+              title = "",
+            }
+            vim.lsp.buf.execute_command(params)
+          end,
+          description = "Organize Imports",
+        },
+
+      },
     })
 
     -- configure css server
@@ -85,7 +87,19 @@ return {
     lspconfig["tailwindcss"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+      filetypes = {
+        "html",
+        "javascriptreact",
+        "typescriptreact",
+      },
     })
+
+    -- configure html server
+    lspconfig["html"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
 
     -- configure emmet server
     lspconfig["emmet_ls"].setup({
