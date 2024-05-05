@@ -36,7 +36,7 @@ return {
     -- install mason tool automatic
     mason_tool_installer.setup({
       ensure_installed = {
-        "prettier", -- formatter
+        "prettierd", -- formatter
         "stylua", -- formatter
         "eslint_d", -- js linter
       }

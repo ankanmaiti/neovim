@@ -1,21 +1,23 @@
 return {
   "nvimtools/none-ls.nvim",
-  version="*",
-
+  event="VeryLazy",
+  dependencies = {
+    "nvimtools/none-ls-extras.nvim",
+  },
   config = function()
     local null_ls = require("null-ls")
 
     null_ls.setup({
       sources = {
         null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.prettier,
-        null_ls.builtins.diagnostics.eslint,
-     }
+        null_ls.builtins.formatting.prettierd,
+        require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
+      },
     })
     -- set keymap
     local opts = { noremap = true, silent = true }
 
     opts.desc = "Format Code"
-    vim.keymap.set({ 'n', 'v' }, '<leader>cf', vim.lsp.buf.format, opts)
-  end
+    vim.keymap.set({ "n", "v" }, "<leader>cf", vim.lsp.buf.format, opts)
+  end,
 }
