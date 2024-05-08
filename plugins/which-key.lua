@@ -35,6 +35,7 @@ return {
 				c = { name = "Code" },
 				x = { name = "Diagonists" },
 				w = { name = "windows" },
+				h = { name = "harpoon" },
 			}, { mode = { "n", "v" }, prefix = "<leader>", noremap = true, silet = true })
 		end,
 	},
