@@ -27,7 +27,7 @@ return {
 		vim.keymap.set("n", "zM", require("ufo").closeAllFolds, opts)
 
 		opts.desc = "Peek Fold"
-		vim.keymap.set("n", "zK", function()
+		vim.keymap.set("n", "zk", function()
 			local winid = require("ufo").peekFoldedLinesUnderCursor()
 			if not winid then
 				vim.lsp.buf.hover()
