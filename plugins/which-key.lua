@@ -36,6 +36,8 @@ return {
 				x = { name = "Diagonists" },
 				w = { name = "windows" },
 				h = { name = "harpoon" },
+				b = { name = "buffers" },
+				g = { name = "git" },
 			}, { mode = { "n", "v" }, prefix = "<leader>", noremap = true, silet = true })
 		end,
 	},
