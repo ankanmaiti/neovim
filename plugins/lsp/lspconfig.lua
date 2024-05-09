@@ -42,7 +42,7 @@ return {
 
       opts.desc = "Show documentation on hover"
       keymap.set("n", "<leader>cd", vim.lsp.buf.hover, opts)
-      keymap.set("n", "<leader><leader>", vim.lsp.buf.hover, opts)
+      keymap.set("n", "K", vim.lsp.buf.hover, opts)
     end
 
     -- used to enable autocompletion (assign to every lsp server config)

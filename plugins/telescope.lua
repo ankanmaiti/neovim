@@ -39,15 +39,14 @@ return {
       opts.desc = "Find Recent Files"
       keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", opts)
 
-      opts.desc = "Find String (cwd)"
+      opts.desc = "Live Grep (cwd)"
       keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", opts)
 
-      opts.desc = "Find String Under Corsor (cwd)"
-      keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", opts)
+      opts.desc = "Live Grep (selected string) (cwd)"
+      keymap.set("v", "<leader>fs", "<cmd>Telescope grep_string<cr>", opts)
 
       opts.desc = "Find Buffers"
       keymap.set("n", "<leader>fb", ":Telescope buffers<cr>", opts)
-      keymap.set("n", "<leader>bb", ":Telescope buffers<cr>", opts)
     end,
   },
   {
