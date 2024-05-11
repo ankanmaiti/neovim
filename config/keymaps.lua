@@ -1,40 +1,40 @@
-local opts = { noremap = true, silent = true }
+local keyopts = { noremap = true, silent = true }
 
 -- Navigate buffers
-opts.desc = "Next Buffer"
-vim.keymap.set("n", "<S-l>", ":bnext<CR>", opts)
+keyopts.desc = "Next Buffer"
+vim.keymap.set("n", "<S-l>", ":bnext<CR>", keyopts)
 
-opts.desc = "Previous Buffer"
-vim.keymap.set("n", "<S-h>", ":bprevious<CR>", opts)
+keyopts.desc = "Previous Buffer"
+vim.keymap.set("n", "<S-h>", ":bprevious<CR>", keyopts)
 
--- opts.desc = "Delete Buffer"
--- vim.keymap.set("n", "<leader>bd", ":bd<cr>", opts)
+-- keyopts.desc = "Delete Buffer"
+-- vim.keymap.set("n", "<leader>bd", ":bd<cr>", keyopts)
 
 -- split window vertically
-opts.desc = "vertical split"
-vim.keymap.set({ "n", "v" }, "<leader>w%", ":vsplit<CR>", opts)
-vim.keymap.set({ "n", "v" }, "<leader>wv", ":vsplit<CR>", opts)
+keyopts.desc = "vertical split"
+vim.keymap.set({ "n", "v" }, "<leader>w%", ":vsplit<CR>", keyopts)
+vim.keymap.set({ "n", "v" }, "<leader>wv", ":vsplit<CR>", keyopts)
 
 -- split window horizontally
-opts.desc = "horizontally split"
-vim.keymap.set({ "n", "v" }, '<leader>w"', ":split<CR>", opts)
-vim.keymap.set({ "n", "v" }, "<leader>wh", ":split<CR>", opts)
+keyopts.desc = "horizontally split"
+vim.keymap.set({ "n", "v" }, '<leader>w"', ":split<CR>", keyopts)
+vim.keymap.set({ "n", "v" }, "<leader>wh", ":split<CR>", keyopts)
 
 -- close window
-opts.desc = "close window"
-vim.keymap.set({ "n", "v" }, "<leader>wc", ":close<CR>", opts)
+keyopts.desc = "close window"
+vim.keymap.set({ "n", "v" }, "<leader>wc", ":close<CR>", keyopts)
 
 -- Better window navigation
-opts.desc = "Windows Navigation"
-vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
-vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
-vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
-vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
+keyopts.desc = "Windows Navigation"
+vim.keymap.set("n", "<C-h>", "<C-w>h", keyopts)
+vim.keymap.set("n", "<C-j>", "<C-w>j", keyopts)
+vim.keymap.set("n", "<C-k>", "<C-w>k", keyopts)
+vim.keymap.set("n", "<C-l>", "<C-w>l", keyopts)
 
 -- Lazy Package Manager
-opts.desc = "Lazy"
-vim.keymap.set("n", "<leader>l", ":Lazy<cr>", opts)
+-- keyopts.desc = "Lazy"
+-- vim.keymap.set("n", "<leader>l", ":Lazy<cr>", keyopts)
 
 -- disable some default keymaps
--- opts.desc = ""
--- vim.keymap.set({ 'v', 'x' }, 's', '<Nop>', opts)
+-- keyopts.desc = ""
+-- vim.keymap.set({ 'v', 'x' }, 's', '<Nop>', keyopts)
