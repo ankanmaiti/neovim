@@ -1,44 +1,83 @@
 return {
 	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
+		"nvim-tree/nvim-tree.lua",
 		event = "VeryLazy",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-			"3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-		},
-		opts = {
-			view = {
-				relativenumber = true,
-			},
-			filesystem = {
-				follow_current_file = {
-					enabled = true,
-					leave_dirs_open = true,
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			-- disable netrw at the very start of your init.lua
+			vim.g.loaded_netrw = 1
+			vim.g.loaded_netrwPlugin = 1
+
+			-- optionally enable 24-bit colour
+			vim.opt.termguicolors = true
+
+			require("nvim-tree").setup({
+				view = {
+					width = 40,
+					relativenumber = true,
 				},
-			},
-			window = {
-				position = "left",
-				width = 40,
-				mappings = {
-					["p"] = {
-						"toggle_preview",
-						config = {
-							use_float = false,
-							use_image_nvim = true,
+				-- setup icons
+				renderer = {
+					indent_markers = {
+						enable = true,
+						inline_arrows = true,
+						icons = {
+							corner = "└",
+							edge = "▏",
+							item = "│",
+							bottom = "─",
+							none = " ",
+						},
+					},
+					icons = {
+						glyphs = {
+							folder = {
+								arrow_closed = "+",
+								arrow_open = "-",
+							},
 						},
 					},
 				},
+				-- disable window_picker
+				-- for explorer to work well
+				-- with window split
+				actions = {
+					open_file = {
+						window_picker = {
+							enable = false,
+						},
+					},
+				},
+				filters = {
+					custom = { ".DS_Store" },
+				},
+				git = {
+					ignore = false,
+				},
+			})
+
+			--setup keymap
+			local keyopts = { noremap = true, silent = true }
+
+			keyopts.desc = "File Explorer"
+			vim.keymap.set("n", "<leader>e", ":NvimTreeFindFileToggle<cr>", keyopts)
+		end,
+	},
+	{
+		"stevearc/oil.nvim",
+		event = "VeryLazy",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = {
+			keymaps = {
+				["<esc>"] = "actions.close",
 			},
 		},
 		init = function()
 			--setup keymap
-			local opts = { noremap = true, silent = true }
+			local keyopts = { noremap = true, silent = true }
 
-			opts.desc = "File Explorer"
-			vim.keymap.set("n", "<leader>e", ":Neotree filesystem toggle left<cr>", opts)
+			keyopts.desc = "Open parent directory"
+			vim.keymap.set("n", "-", ":Oil --float<cr>", keyopts)
 		end,
 	},
 }
