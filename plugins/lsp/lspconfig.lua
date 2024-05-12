@@ -16,41 +16,41 @@ return {
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 		local keymap = vim.keymap
-		local opts = { noremap = true, silent = true }
+		local keyopts = { noremap = true, silent = true }
 
 		local on_attach = function(_, bufnr)
-			opts.buffer = bufnr
+			keyopts.buffer = bufnr
 
 			-- set keybinds
 
 			-- Lookup
-			opts.desc = "Show documentation on hover"
-			keymap.set("n", "K", vim.lsp.buf.hover, opts)
+			keyopts.desc = "Show documentation on hover"
+			keymap.set("n", "K", vim.lsp.buf.hover, keyopts)
 			-- keymap.set("n", "<leader>cd", vim.lsp.buf.hover, opts)
 
 			-- Go to
-			opts.desc = "Go to definitions"
-			keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
+			keyopts.desc = "Go to definitions"
+			keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", keyopts)
 
-			opts.desc = "Show LSP implementations"
-			keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<cr>", opts)
+			keyopts.desc = "Show LSP implementations"
+			keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<cr>", keyopts)
 
-			opts.desc = "Show LSP type definitions"
-			keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>", opts)
+			keyopts.desc = "Show LSP type definitions"
+			keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>", keyopts)
 
-			opts.desc = "See Code Actions"
-			keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+			keyopts.desc = "See Code Actions"
+			keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, keyopts)
 
 			-- Rename
-			opts.desc = "Smart Rename"
-			keymap.set({ "n", "v" }, "<leader>cr", vim.lsp.buf.rename, opts)
+			keyopts.desc = "Smart Rename"
+			keymap.set({ "n", "v" }, "<leader>cr", vim.lsp.buf.rename, keyopts)
 
 			-- Diagnostics
-			opts.desc = "Show buffer diagnostics"
-			keymap.set("n", "<leader>xb", "<cmd>Telescope diagnostics bufnr=0<cr>", opts)
+			keyopts.desc = "Show buffer diagnostics"
+			keymap.set("n", "<leader>xb", "<cmd>Telescope diagnostics bufnr=0<cr>", keyopts)
 
-			opts.desc = "Show Line Diagnostics"
-			keymap.set("n", "<leader>xl", vim.diagnostic.open_float, opts)
+			keyopts.desc = "Show Line Diagnostics"
+			keymap.set("n", "<leader>xl", vim.diagnostic.open_float, keyopts)
 		end
 
 		-- used to enable autocompletion (assign to every lsp server config)
