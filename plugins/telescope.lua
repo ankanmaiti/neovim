@@ -48,6 +48,8 @@ return {
 			keyopts.desc = "Find Buffers"
 			keymap.set("n", "<leader>fb", ":Telescope buffers<cr>", keyopts)
 
+			keyopts.desc = "Find Keymaps"
+			vim.keymap.set("n", "<leader>fk", ":Telescope keymaps<cr>", keyopts)
 		end,
 	},
 	{
