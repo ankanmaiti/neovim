@@ -35,6 +35,7 @@ return {
 					"tailwindcss",
 					"lua_ls",
 					"emmet_ls",
+          "sqlls"
 				},
 
 				-- auto-install configured servers (with lspconfig)
