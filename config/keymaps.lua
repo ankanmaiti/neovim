@@ -38,3 +38,10 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", keyopts)
 -- disable some default keymaps
 -- keyopts.desc = ""
 -- vim.keymap.set({ 'v', 'x' }, 's', '<Nop>', keyopts)
+
+-- change default keybindings for occurrence
+keyopts.desc = "Next Occurrence"
+vim.api.nvim_set_keymap('n', 'no', 'n', keyopts)
+
+keyopts.desc = "Previous Occurrence"
+vim.api.nvim_set_keymap('n', 'No', 'N', keyopts)
