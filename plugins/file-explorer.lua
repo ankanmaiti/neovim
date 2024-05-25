@@ -1,66 +1,32 @@
 return {
 	{
-		"nvim-tree/nvim-tree.lua",
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
 		event = "VeryLazy",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		config = function()
-			-- disable netrw at the very start of your init.lua
-			vim.g.loaded_netrw = 1
-			vim.g.loaded_netrwPlugin = 1
-
-			-- optionally enable 24-bit colour
-			vim.opt.termguicolors = true
-
-			require("nvim-tree").setup({
-				view = {
-					width = 40,
-					relativenumber = true,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+			--"3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+		},
+		opts = {
+			event_handlers = {
+				{
+					event = "neo_tree_buffer_enter",
+					handler = function()
+						vim.cmd([[
+              setlocal relativenumber
+            ]])
+					end,
 				},
-				-- setup icons
-				renderer = {
-					indent_markers = {
-						enable = true,
-						inline_arrows = true,
-						icons = {
-							corner = "└",
-							edge = "▏",
-							item = "│",
-							bottom = "─",
-							none = " ",
-						},
-					},
-					icons = {
-						glyphs = {
-							folder = {
-								arrow_closed = "+",
-								arrow_open = "-",
-							},
-						},
-					},
-				},
-				-- disable window_picker
-				-- for explorer to work well
-				-- with window split
-				actions = {
-					open_file = {
-						window_picker = {
-							enable = false,
-						},
-					},
-				},
-				filters = {
-					custom = { ".DS_Store" },
-				},
-				git = {
-					ignore = false,
-				},
-			})
-
+			},
+		},
+		init = function()
 			--setup keymap
 			local keyopts = { noremap = true, silent = true }
 
 			keyopts.desc = "File Explorer"
-			vim.keymap.set("n", "<leader>e", ":NvimTreeFindFileToggle<cr>", keyopts)
+			vim.keymap.set("n", "<leader>e", ":Neotree toggle<cr>", keyopts)
 		end,
 	},
 	{
