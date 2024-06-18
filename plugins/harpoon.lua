@@ -29,5 +29,6 @@ return {
 
 		opts.desc = "quick menu"
 		vim.keymap.set("n", "<leader>hm", require("harpoon.ui").toggle_quick_menu, opts)
+		vim.keymap.set("n", "<leader><leader>", require("harpoon.ui").toggle_quick_menu, opts)
 	end,
 }
