@@ -10,6 +10,9 @@ return {
 		-- setup keymap
 		local opts = { noremap = true, silent = true }
 
+		opts.desc = "Find Todos"
+		vim.keymap.set("n", "<leader>ft", ":TodoTelescope<cr>", opts)
+
 		opts.desc = "Jump next todo"
 		vim.keymap.set("n", "nt", todo.jump_next, opts)
 
