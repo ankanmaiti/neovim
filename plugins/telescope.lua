@@ -4,8 +4,10 @@ return {
 		branch = "0.1.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 			"nvim-tree/nvim-web-devicons",
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+			{ "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0" },
+			{ "nvim-telescope/telescope-ui-select.nvim" },
 		},
 
 		config = function()
@@ -27,7 +29,10 @@ return {
 				},
 			})
 
+      -- telescope load extensions
 			telescope.load_extension("fzf")
+			telescope.load_extension("live_grep_args")
+			telescope.load_extension("ui-select")
 
 			-- set keymaps
 			local keymap = vim.keymap -- for concisness
@@ -35,36 +40,22 @@ return {
 
 			keyopts.desc = "Find Files (cwd)"
 			keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", keyopts)
+			keymap.set("n", "<C-p>", "<cmd>Telescope find_files<cr>", keyopts)
 
 			keyopts.desc = "Find Recent Files"
 			keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", keyopts)
 
 			keyopts.desc = "Live Grep (cwd)"
-			keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", keyopts)
+			keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep_args<cr>", keyopts)
 
 			keyopts.desc = "Live Grep (selected string) (cwd)"
-			keymap.set("v", "<leader>fs", "<cmd>Telescope grep_string<cr>", keyopts)
+			keymap.set({ "n", "v" }, "<leader>fs", "<cmd>Telescope grep_string<cr>", keyopts)
 
 			keyopts.desc = "Find Buffers"
 			keymap.set("n", "<leader>fb", ":Telescope buffers<cr>", keyopts)
 
 			keyopts.desc = "Find Keymaps"
 			vim.keymap.set("n", "<leader>fk", ":Telescope keymaps<cr>", keyopts)
-		end,
-	},
-	{
-		"nvim-telescope/telescope-ui-select.nvim",
-		config = function()
-			require("telescope").setup({
-				extensions = {
-					["ui-select"] = {
-						require("telescope.themes").get_dropdown({}),
-					},
-				},
-			})
-			-- To get ui-select loaded and working with telescope, you need to call
-			-- load_extension, somewhere after setup function:
-			require("telescope").load_extension("ui-select")
 		end,
 	},
 }
