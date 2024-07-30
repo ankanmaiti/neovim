@@ -27,7 +27,7 @@ return {
 		opts.desc = "next mark"
 		vim.keymap.set("n", "<leader>hn", require("harpoon.ui").nav_next, opts)
 
-		opts.desc = "quick menu"
+		opts.desc = "harpoon menu"
 		vim.keymap.set("n", "<leader>hm", require("harpoon.ui").toggle_quick_menu, opts)
 		vim.keymap.set("n", "<leader><leader>", require("harpoon.ui").toggle_quick_menu, opts)
 	end,
