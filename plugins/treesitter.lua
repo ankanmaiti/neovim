@@ -15,6 +15,9 @@ return {
 			"vim",
 			"yaml",
 			"sql",
+      "php",
+      "tmux",
+      "vim"
 		},
 		incremental_selection = {
 			enable = true,
