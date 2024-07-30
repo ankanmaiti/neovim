@@ -20,6 +20,9 @@ vim.opt.incsearch = true
 
 vim.opt.updatetime = 50
 
+-- Use the system clipboard
+vim.opt.clipboard = 'unnamedplus'
+
 -- setup copy color
 vim.cmd([[
   augroup YankHighlight
