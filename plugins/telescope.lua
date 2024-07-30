@@ -21,15 +21,13 @@ return {
 						i = {
 							["<C-k>"] = actions.move_selection_previous, -- move to prev result
 							["<C-j>"] = actions.move_selection_next, -- move to next result
-							["<S-tab>"] = actions.move_selection_previous, -- move to prev result
-							["<tab>"] = actions.move_selection_next, -- move to next result
-							["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+							["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
 						},
 					},
 				},
 			})
 
-      -- telescope load extensions
+			-- telescope load extensions
 			telescope.load_extension("fzf")
 			telescope.load_extension("live_grep_args")
 			telescope.load_extension("ui-select")
@@ -53,6 +51,10 @@ return {
 
 			keyopts.desc = "Find Buffers"
 			keymap.set("n", "<leader>fb", ":Telescope buffers<cr>", keyopts)
+
+			keyopts.desc = "Find Quickfix"
+			keymap.set("n", "<leader>fq", ":Telescope quickfix<cr>", keyopts)
+			keymap.set("n", "<leader>cq", ":Telescope quickfix<cr>", keyopts)
 
 			keyopts.desc = "Find Keymaps"
 			vim.keymap.set("n", "<leader>fk", ":Telescope keymaps<cr>", keyopts)
