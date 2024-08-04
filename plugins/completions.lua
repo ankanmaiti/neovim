@@ -1,7 +1,9 @@
 return {
+  -- integrates the completion engine with LSP
 	{
 		"hrsh7th/cmp-nvim-lsp",
 	},
+  -- provides snippet support
 	{
 		"L3MON4D3/LuaSnip",
 		dependencies = {
@@ -9,6 +11,7 @@ return {
 			"rafamadriz/friendly-snippets",
 		},
 	},
+  -- core completion engine
 	{
 		"hrsh7th/nvim-cmp",
 		config = function()
