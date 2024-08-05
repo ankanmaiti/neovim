@@ -1,5 +1,6 @@
 return {
 	"ThePrimeagen/harpoon",
+	branch = "harpoon2",
 	event = "VeryLazy",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
@@ -9,26 +10,57 @@ return {
 		local harpoon = require("harpoon")
 		harpoon.setup()
 
-		-- setup harpoon with telescope
-		require("telescope").load_extension("harpoon")
+		-- basic telescope configuration
+		local conf = require("telescope.config").values
+		local function toggle_telescope(harpoon_files)
+			local file_paths = {}
+			for _, item in ipairs(harpoon_files.items) do
+				table.insert(file_paths, item.value)
+			end
+
+			require("telescope.pickers")
+				.new({}, {
+					prompt_title = "Harpoon",
+					finder = require("telescope.finders").new_table({
+						results = file_paths,
+					}),
+					previewer = conf.file_previewer({}),
+					sorter = conf.generic_sorter({}),
+				})
+				:find()
+		end
 
 		-- setup keymaps
 		local opts = { noremap = true, silent = true }
 
-		opts.desc = "harpoon menu"
-		vim.keymap.set("n", "<leader>hh", ":Telescope harpoon marks<cr>", opts)
+		opts.desc = "Open harpoon window"
+		vim.keymap.set("n", "<C-e>", function()
+			toggle_telescope(harpoon:list())
+		end, opts)
 
 		opts.desc = "add mark"
-		vim.keymap.set("n", "<leader>ha", require("harpoon.mark").add_file, opts)
+		vim.keymap.set("n", "<leader>ha", function()
+			harpoon:list():add()
+		end, opts)
 
+		-- Toggle previous & next buffers stored within Harpoon list
 		opts.desc = "prev mark"
-		vim.keymap.set("n", "<leader>hp", require("harpoon.ui").nav_prev, opts)
+		vim.keymap.set("n", "<leader>hp", function()
+			harpoon:list():prev()
+		end)
 
 		opts.desc = "next mark"
-		vim.keymap.set("n", "<leader>hn", require("harpoon.ui").nav_next, opts)
+		vim.keymap.set("n", "<leader>hn", function()
+			harpoon:list():next()
+		end)
 
 		opts.desc = "harpoon menu"
-		vim.keymap.set("n", "<leader>hm", require("harpoon.ui").toggle_quick_menu, opts)
-		vim.keymap.set("n", "<leader><leader>", require("harpoon.ui").toggle_quick_menu, opts)
+		vim.keymap.set("n", "<leader>hm", function()
+			harpoon.ui:toggle_quick_menu(harpoon:list())
+		end, opts)
+
+		vim.keymap.set("n", "<leader><leader>", function()
+			harpoon.ui:toggle_quick_menu(harpoon:list())
+		end, opts)
 	end,
 }
