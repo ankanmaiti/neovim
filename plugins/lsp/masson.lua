@@ -35,7 +35,9 @@ return {
 					"tailwindcss",
 					"lua_ls",
 					"emmet_ls",
-          "sqlls"
+          "sqlls",
+          "intelephense",
+          "stimulus_ls",
 				},
 
 				-- auto-install configured servers (with lspconfig)
@@ -53,6 +55,9 @@ return {
 					"prettierd", -- formatter
 					"stylua", -- formatter
 					"eslint_d", -- js linter
+          "blade-formatter", -- formatter
+          "phpstan", -- php linter
+          "pint", -- laravel formatter
 				},
 			})
 		end,

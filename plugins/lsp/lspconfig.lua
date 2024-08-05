@@ -13,7 +13,6 @@ return {
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 		local keymap = vim.keymap
 		local keyopts = { noremap = true, silent = true }
@@ -26,7 +25,6 @@ return {
 			-- Lookup
 			keyopts.desc = "Show documentation on hover"
 			keymap.set("n", "K", vim.lsp.buf.hover, keyopts)
-			-- keymap.set("n", "<leader>cd", vim.lsp.buf.hover, opts)
 
 			-- Go to
 			keyopts.desc = "Go to definitions"
@@ -54,7 +52,7 @@ return {
 		end
 
 		-- used to enable autocompletion (assign to every lsp server config)
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		--change the diagnostic symbols in the sign column (gutter)
 		local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
@@ -113,6 +111,20 @@ return {
 			on_attach = on_attach,
 			filetypes = { "html", "typescriptreact", "javascriptreact", "css" },
 		})
+
+		-- configure php server
+		lspconfig["intelephense"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = { "php" },
+		})
+
+		-- configure blade server
+		-- lspconfig["stimulus_ls"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	filetypes = { "blade", "php" },
+		-- })
 
 		-- configure lua server
 		lspconfig["lua_ls"].setup({
