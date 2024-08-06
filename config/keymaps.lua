@@ -45,3 +45,9 @@ vim.api.nvim_set_keymap('n', 'no', 'n', keyopts)
 
 keyopts.desc = "Previous Occurrence"
 vim.api.nvim_set_keymap('n', 'No', 'N', keyopts)
+
+-- inlay hints
+keyopts.desc = "Inlay Hints"
+vim.keymap.set("n", "<C-h>", function()
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, keyopts)
