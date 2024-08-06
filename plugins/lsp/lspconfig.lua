@@ -22,9 +22,9 @@ return {
 
 			-- set keybinds
 
-			-- Lookup
-			keyopts.desc = "Show documentation on hover"
-			keymap.set("n", "K", vim.lsp.buf.hover, keyopts)
+			-- Lookup (already by default implement in neovim)
+			-- keyopts.desc = "Show documentation on hover"
+			-- keymap.set("n", "K", vim.lsp.buf.hover, keyopts)
 
 			-- Go to
 			keyopts.desc = "Go to definitions"
