@@ -6,6 +6,8 @@ return {
 		priority = 1000,
 		config = function()
 			require("catppuccin").setup({
+        term_colors = true,
+        transparent_background = true,
 				cusotm_highlights = function(colors)
 					return { netrwTreeBar = { fg = colors.surface0 } }
 				end,
