@@ -35,6 +35,6 @@ return {
 		vim.keymap.set("n", "<leader>nd", ":NoiceDismiss<cr>", keyopts)
 
 		keyopts.desc = "Filter Noice"
-		vim.keymap.set("n", "<leader>nn", ":Telescope noice<cr>", keyopts)
+		vim.keymap.set("n", "<leader>nn", ":Telescope noice theme=dropdown<cr>", keyopts)
 	end,
 }
