@@ -33,14 +33,17 @@ return {
 				},
 			})
 
-			wk.register({
-				f = { name = "Find/Files" },
-				c = { name = "Code" },
-				x = { name = "Diagonists" },
-				w = { name = "windows" },
-				h = { name = "harpoon" },
-				g = { name = "git" },
-			}, { mode = { "n", "v" }, prefix = "<leader>", noremap = true, silet = true })
+			wk.add({
+				{ "<leader>f", group = "Find/Files" },
+				{ "<leader>c", group = "Code" },
+				{ "<leader>x", group = "Diagonists" },
+				{ "<leader>w", group = "windows" },
+				{ "<leader>h", group = "harpoon" },
+				{ "<leader>g", group = "git" },
+				{ "<leader>n", group = "noice" },
+			}, {
+				mode = { "n", "v" },
+			})
 		end,
 	},
 }
