@@ -48,6 +48,6 @@ vim.api.nvim_set_keymap('n', 'No', 'N', keyopts)
 
 -- inlay hints
 keyopts.desc = "Inlay Hints"
-vim.keymap.set("n", "<C-h>", function()
+vim.keymap.set("n", "<leader>ch", function()
 	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, keyopts)
