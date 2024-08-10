@@ -119,13 +119,6 @@ return {
 			filetypes = { "php" },
 		})
 
-		-- configure blade server
-		-- lspconfig["stimulus_ls"].setup({
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- 	filetypes = { "blade", "php" },
-		-- })
-
 		-- configure lua server
 		lspconfig["lua_ls"].setup({
 			capabilities = capabilities,
