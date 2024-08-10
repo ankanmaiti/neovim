@@ -14,9 +14,9 @@ return {
 		vim.keymap.set("n", "<leader>ft", ":TodoTelescope<cr>", opts)
 
 		opts.desc = "Jump next todo"
-		vim.keymap.set("n", "nt", todo.jump_next, opts)
+		vim.keymap.set("n", "]t", todo.jump_next, opts)
 
 		opts.desc = "Jump previous todo"
-		vim.keymap.set("n", "Nt", todo.jump_next, opts)
+		vim.keymap.set("n", "[t", todo.jump_prev, opts)
 	end,
 }
