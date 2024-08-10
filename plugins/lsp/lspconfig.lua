@@ -61,10 +61,29 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
+		-- support for inlayhints
+		local inlayHints = {
+			includeInlayEnumMemberValueHints = true,
+			includeInlayFunctionLikeReturnTypeHints = true,
+			includeInlayFunctionParameterTypeHints = true,
+			includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+			includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+			includeInlayPropertyDeclarationTypeHints = true,
+			includeInlayVariableTypeHints = false,
+		}
+
 		-- configure tsserver server
 		lspconfig["tsserver"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			settings = {
+				javascript = {
+					inlayHints = inlayHints,
+				},
+				typescript = {
+					inlayHints = inlayHints,
+				},
+			},
 			commands = {
 
 				-- organize imports
@@ -113,10 +132,26 @@ return {
 		})
 
 		-- configure php server
-		lspconfig["intelephense"].setup({
+		-- lspconfig["intelephense"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	filetypes = { "php" },
+		-- })
+
+		lspconfig["phpactor"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "php" },
+			root_dir = lspconfig.util.root_pattern("composer.json", ".git"),
+			init_options = {
+				["language_server_phpstan.enabled"] = true,
+				["language_server_psalm.enabled"] = false,
+			},
+			settings = {
+				php = {
+					inlayHints = inlayHints,
+				},
+			},
 		})
 
 		-- configure lua server
@@ -125,6 +160,7 @@ return {
 			on_attach = on_attach,
 			settings = {
 				Lua = {
+					inlayHints = inlayHints,
 					-- make language server recognize "vim" global
 					diagnostics = { global = { "vim" } },
 					workspace = {

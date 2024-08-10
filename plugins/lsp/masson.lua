@@ -36,7 +36,7 @@ return {
 					"lua_ls",
 					"emmet_ls",
           "sqlls",
-          "intelephense",
+          "phpactor",
           "stimulus_ls",
 				},
 
