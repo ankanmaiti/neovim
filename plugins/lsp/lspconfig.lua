@@ -10,6 +10,7 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true }, -- rename files in neotree and effect import statement
+		"nvim-telescope/telescope.nvim",
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
@@ -21,11 +22,6 @@ return {
 			keyopts.buffer = bufnr
 
 			-- set keybinds
-
-			-- Lookup (already by default implement in neovim)
-			-- keyopts.desc = "Show documentation on hover"
-			-- keymap.set("n", "K", vim.lsp.buf.hover, keyopts)
-
 			-- Go to
 			keyopts.desc = "Go to definitions"
 			keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", keyopts)
@@ -39,6 +35,14 @@ return {
 			keyopts.desc = "See Code Actions"
 			keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, keyopts)
 
+			-- lsp incoming calls
+			keyopts.desc = "Where the function invoked under the cursor"
+			keymap.set({ "n", "v" }, "<leader>ci", "<cmd>Telescope lsp_incoming_calls<cr>", keyopts)
+
+			-- lsp outgoing calls
+			keyopts.desc = "Where the function calls other functions"
+			keymap.set({ "n", "v" }, "<leader>co", "<cmd>Telescope lsp_outgoing_calls<cr>", keyopts)
+
 			-- Rename
 			keyopts.desc = "Smart Rename"
 			keymap.set({ "n", "v" }, "<leader>cr", vim.lsp.buf.rename, keyopts)
@@ -47,8 +51,17 @@ return {
 			keyopts.desc = "Show buffer diagnostics"
 			keymap.set("n", "<leader>xb", "<cmd>Telescope diagnostics bufnr=0<cr>", keyopts)
 
+			keyopts.desc = "Find Diagnostics"
+			keymap.set("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>", keyopts)
+
 			keyopts.desc = "Show Line Diagnostics"
 			keymap.set("n", "<leader>xl", vim.diagnostic.open_float, keyopts)
+
+			-- inlay hints
+			keyopts.desc = "Inlay Hints (toggle)"
+			vim.keymap.set("n", "<leader>ch", function()
+				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+			end, keyopts)
 		end
 
 		-- used to enable autocompletion (assign to every lsp server config)

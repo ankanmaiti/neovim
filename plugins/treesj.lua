@@ -11,7 +11,7 @@ return {
 		local keyopts = { noremap = true, silent = true }
 
 		keyopts.desc = "Split code block (toggle)"
-		vim.keymap.set({'n', 'v'}, '<leader>s', ':lua require("treesj").toggle()<cr>', keyopts)
+		-- vim.keymap.set({ 'n', 'v' }, '<leader>s', ':lua require("treesj").toggle()<cr>', keyopts)
 		vim.keymap.set( "n", "<leader>cs", ':lua require("treesj").toggle()<cr>', keyopts)
 	end,
 }
