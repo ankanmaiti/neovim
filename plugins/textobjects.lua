@@ -12,23 +12,23 @@ return {
 
 					keymaps = {
 
-						["ap"] = { query = "@parameter.outer", { desc = "outer parameter" } },
-						["ip"] = { query = "@parameter.inner", { desc = "inner parameter" } },
+						["ap"] = { query = "@parameter.outer", desc = "outer parameter" },
+						["ip"] = { query = "@parameter.inner", desc = "inner parameter" },
 
-						["af"] = { query = "@function.outer", { desc = "outer function" } },
-						["if"] = { query = "@function.inner", { desc = "inner function" } },
+						["af"] = { query = "@function.outer", desc = "outer function" },
+						["if"] = { query = "@function.inner", desc = "inner function" },
 
-						["am"] = { query = "@call.outer", { desc = "outer function call" } },
-						["im"] = { query = "@call.inner", { desc = "inner function call" } },
+						["am"] = { query = "@call.outer", desc = "outer function call" },
+						["im"] = { query = "@call.inner", desc = "inner function call" },
 
-						["ac"] = { query = "@class.outer", { desc = "outer class" } },
-						["ic"] = { query = "@class.inner", { desc = "inner class" } },
+						["ac"] = { query = "@class.outer", desc = "outer class" },
+						["ic"] = { query = "@class.inner", desc = "inner class" },
 
-						["ai"] = { query = "@conditional.outer", { desc = "outer conditional" } },
-						["ii"] = { query = "@conditional.inner", { desc = "inner conditional" } },
+						["ai"] = { query = "@conditional.outer", desc = "outer conditional" },
+						["ii"] = { query = "@conditional.inner", desc = "inner conditional" },
 
-						["al"] = { query = "@loop.outer", { desc = "outer loop" } },
-						["il"] = { query = "@loop.inner", { desc = "inner loop" } },
+						["al"] = { query = "@loop.outer", desc = "outer loop" },
+						["il"] = { query = "@loop.inner", desc = "inner loop" },
 					},
 				},
 
