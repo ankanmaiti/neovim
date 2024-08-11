@@ -33,8 +33,8 @@ return {
 		-- setup keymaps
 		local opts = { noremap = true, silent = true }
 
-		opts.desc = "Open harpoon window"
-		vim.keymap.set("n", "<C-e>", function()
+		opts.desc = "harpoon list"
+		vim.keymap.set("n", "<leader>hl", function()
 			toggle_telescope(harpoon:list())
 		end, opts)
 
@@ -47,16 +47,11 @@ return {
 		opts.desc = "prev mark"
 		vim.keymap.set("n", "<leader>hp", function()
 			harpoon:list():prev()
-		end)
+		end, opts)
 
 		opts.desc = "next mark"
 		vim.keymap.set("n", "<leader>hn", function()
 			harpoon:list():next()
-		end)
-
-		opts.desc = "harpoon menu"
-		vim.keymap.set("n", "<leader>hm", function()
-			harpoon.ui:toggle_quick_menu(harpoon:list())
 		end, opts)
 
 		vim.keymap.set("n", "<leader><leader>", function()
