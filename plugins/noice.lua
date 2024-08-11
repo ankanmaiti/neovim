@@ -9,10 +9,18 @@ return {
 	},
 	config = function()
 		require("noice").setup({
+			cmdline = {
+				messages = {
+					enabled = false,
+				},
+			},
 			lsp = {
-        progress = {
-          enable = false,
-        },
+				progress = {
+					enabled = false,
+				},
+				message = {
+					enabled = false,
+				},
 				-- override markdown rendering
 				-- so that **cmp** and other plugins use **Treesitter**
 				override = {
