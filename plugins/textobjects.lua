@@ -37,6 +37,7 @@ return {
 						["]c"] = { query = "@call.outer", desc = "function call" },
 						["]i"] = { query = "@conditional.outer", desc = "conditional" },
 						["]l"] = { query = "@loop.outer", desc = "loop" },
+						["]r"] = { query = "@return.outer", desc = "return" },
 					},
 					goto_previous_start = {
 						["[a"] = { query = "@assignment.outer", desc = "assignment" },
@@ -44,6 +45,7 @@ return {
 						["[c"] = { query = "@call.outer", desc = "function call" },
 						["[i"] = { query = "@conditional.outer", desc = "conditional" },
 						["[l"] = { query = "@loop.outer", desc = "loop" },
+						["[r"] = { query = "@return.outer", desc = "return" },
 					},
 				},
 			},
