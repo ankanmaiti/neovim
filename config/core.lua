@@ -27,7 +27,7 @@ vim.opt.clipboard = 'unnamedplus'
 vim.cmd([[
   augroup YankHighlight
     autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank({higroup='Search', timeout=250})
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank({higroup='Search', timeout=100})
   augroup END
 ]])
 
