@@ -14,8 +14,11 @@ return {
 						["af"] = { query = "@function.outer", desc = "outer function" },
 						["if"] = { query = "@function.inner", desc = "inner function" },
 
-						["ac"] = { query = "@call.outer", desc = "outer function call" },
-						["ic"] = { query = "@call.inner", desc = "inner function call" },
+						["aF"] = { query = "@call.outer", desc = "outer function call" },
+						["iF"] = { query = "@call.inner", desc = "inner function call" },
+
+						["ac"] = { query = "@class.outer", desc = "outer class" },
+						["ic"] = { query = "@class.inner", desc = "inner class" },
 
 						["ai"] = { query = "@conditional.outer", desc = "outer conditional" },
 						["ii"] = { query = "@conditional.inner", desc = "inner conditional" },
@@ -34,7 +37,8 @@ return {
 					goto_next_start = {
 						["]a"] = { query = "@assignment.outer", desc = "assignment" },
 						["]f"] = { query = "@function.outer", desc = "function" },
-						["]c"] = { query = "@call.outer", desc = "function call" },
+						["]F"] = { query = "@call.outer", desc = "function call" },
+						["]c"] = { query = "@class.outer", desc = "class" },
 						["]i"] = { query = "@conditional.outer", desc = "conditional" },
 						["]l"] = { query = "@loop.outer", desc = "loop" },
 						["]r"] = { query = "@return.outer", desc = "return" },
@@ -42,7 +46,8 @@ return {
 					goto_previous_start = {
 						["[a"] = { query = "@assignment.outer", desc = "assignment" },
 						["[f"] = { query = "@function.outer", desc = "function" },
-						["[c"] = { query = "@call.outer", desc = "function call" },
+						["[F"] = { query = "@call.outer", desc = "function call" },
+						["[c"] = { query = "@class.outer", desc = "class" },
 						["[i"] = { query = "@conditional.outer", desc = "conditional" },
 						["[l"] = { query = "@loop.outer", desc = "loop" },
 						["[r"] = { query = "@return.outer", desc = "return" },
