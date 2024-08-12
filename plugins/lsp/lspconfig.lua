@@ -6,10 +6,9 @@
 --
 return {
 	"neovim/nvim-lspconfig",
-	event = { "BufReadPre", "BufNewFile" },
+	event = "BufReadPost",
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
-		{ "antosha417/nvim-lsp-file-operations", config = true }, -- rename files in neotree and effect import statement
 		"nvim-telescope/telescope.nvim",
 	},
 	config = function()
@@ -48,14 +47,14 @@ return {
 			keymap.set({ "n", "v" }, "<leader>cr", vim.lsp.buf.rename, keyopts)
 
 			-- Diagnostics
-			keyopts.desc = "Show buffer diagnostics"
-			keymap.set("n", "<leader>xb", "<cmd>Telescope diagnostics bufnr=0<cr>", keyopts)
+			keyopts.desc = "Document Diagnostics"
+			keymap.set("n", "<leader>cd", "<cmd>Telescope diagnostics bufnr=0<cr>", keyopts)
 
 			keyopts.desc = "Find Diagnostics"
 			keymap.set("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>", keyopts)
 
 			keyopts.desc = "Show Line Diagnostics"
-			keymap.set("n", "<leader>xl", vim.diagnostic.open_float, keyopts)
+			keymap.set("n", "<leader>cl", vim.diagnostic.open_float, keyopts)
 
 			-- inlay hints
 			keyopts.desc = "Inlay Hints (toggle)"
@@ -143,13 +142,6 @@ return {
 			on_attach = on_attach,
 			filetypes = { "html", "typescriptreact", "javascriptreact", "css" },
 		})
-
-		-- configure php server
-		-- lspconfig["intelephense"].setup({
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- 	filetypes = { "php" },
-		-- })
 
 		lspconfig["phpactor"].setup({
 			capabilities = capabilities,
