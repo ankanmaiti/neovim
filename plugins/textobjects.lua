@@ -11,10 +11,6 @@ return {
 					lookahed = true,
 
 					keymaps = {
-
-						["ap"] = { query = "@parameter.outer", desc = "outer parameter" },
-						["ip"] = { query = "@parameter.inner", desc = "inner parameter" },
-
 						["af"] = { query = "@function.outer", desc = "outer function" },
 						["if"] = { query = "@function.inner", desc = "inner function" },
 
@@ -37,7 +33,6 @@ return {
 					set_jumps = true,
 					goto_next_start = {
 						["]a"] = { query = "@assignment.outer", desc = "assignment" },
-						["]p"] = { query = "@parameter.outer", desc = "parameter" },
 						["]f"] = { query = "@function.outer", desc = "function" },
 						["]c"] = { query = "@call.outer", desc = "function call" },
 						["]i"] = { query = "@conditional.outer", desc = "conditional" },
@@ -45,7 +40,6 @@ return {
 					},
 					goto_previous_start = {
 						["[a"] = { query = "@assignment.outer", desc = "assignment" },
-						["[p"] = { query = "@parameter.outer", desc = "parameter" },
 						["[f"] = { query = "@function.outer", desc = "function" },
 						["[c"] = { query = "@call.outer", desc = "function call" },
 						["[i"] = { query = "@conditional.outer", desc = "conditional" },
