@@ -10,7 +10,6 @@ return {
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 			{ "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0" },
 			{ "nvim-telescope/telescope-ui-select.nvim" },
-			{ "nvim-telescope/telescope-frecency.nvim" },
 		},
 
 		config = function()
@@ -30,31 +29,12 @@ return {
 						},
 					},
 				},
-				extensions = {
-					frecency = {
-						show_filter_column = false,
-						show_scores = true,
-						show_unindexed = true,
-						auto_validate = true,
-						db_validate_threshold = 10,
-						db_safe_mode = true,
-
-						ignore_patterns = {
-							"*/.git",
-							"*/.git/*",
-							"*/.DS_Store",
-							"*/vendor/*",
-							"*/node_modules/*",
-						},
-					},
-				},
 			})
 
 			-- telescope load extensions
 			telescope.load_extension("fzf")
 			telescope.load_extension("live_grep_args")
 			telescope.load_extension("ui-select")
-			telescope.load_extension("frecency")
 			telescope.load_extension("noice")
 
 			-- set keymaps
@@ -63,7 +43,6 @@ return {
 
 			keyopts.desc = "Find Files (cwd)"
 			keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", keyopts)
-			keymap.set("n", "<C-p>", ":Telescope frecency workspace=CWD<cr>", keyopts)
 
 			keyopts.desc = "Find Recent Files"
 			keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", keyopts)
