@@ -5,7 +5,6 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
-			"AckslD/nvim-neoclip.lua",
 			"folke/noice.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 			{ "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0" },
