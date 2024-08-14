@@ -34,13 +34,11 @@ return {
 			})
 
 			wk.add({
-				{ "<leader>f", group = "Find/Files" },
+				{ "<leader>f", group = "Find" },
 				{ "<leader>c", group = "Code" },
-				{ "<leader>x", group = "Diagonists" },
 				{ "<leader>w", group = "windows" },
 				{ "<leader>h", group = "harpoon" },
 				{ "<leader>g", group = "git" },
-				{ "<leader>n", group = "noice" },
 			}, {
 				mode = { "n", "v" },
 			})
