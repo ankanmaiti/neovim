@@ -15,6 +15,9 @@ return {
 			local telescope = require("telescope")
 			local actions = require("telescope.actions")
 
+			local lga_actions = require("telescope-live-grep-args.actions")
+			local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
+
 			telescope.setup({
 				defaults = {
 					file_ignore_patterns = { "node_modules", ".git", "vendor" },
@@ -24,9 +27,33 @@ return {
 							["<C-j>"] = actions.move_selection_next, -- move to next result
 							-- freeze the current list and start a fuzzy search in the frozen list
 							["<C-space>"] = actions.to_fuzzy_refine,
-							-- ["<C-q>"] = actions.smart_send_to_qflist + actions.open_qflist,
 						},
 					},
+				},
+				pickers = {
+					["diagnostics"] = {
+						theme = "dropdown",
+						filter = { "error", "warning" },
+					},
+				},
+				extensions = {
+					["live_grep_args"] = {
+						mappings = {
+							i = {
+								["<C-q>"] = lga_actions.quote_prompt(),
+								["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+								["<C-t>"] = lga_actions.quote_prompt({ postfix = " -t" }),
+							},
+						},
+						theme = "dropdown",
+					},
+					--
+					["ui-select"] = {
+						require("telescope.themes").get_dropdown({
+							-- even more opts
+						}),
+					},
+					--
 				},
 			})
 
@@ -47,7 +74,13 @@ return {
 			keymap.set("n", "<leader>fr", ":Telescope oldfiles cwd_only=true<cr>", keyopts)
 
 			keyopts.desc = "Live Grep (cwd)" -- Find Live Grep
-			keymap.set("n", "<leader>fg", ":Telescope live_grep_args theme=dropdown<cr>", keyopts)
+			keymap.set("n", "<leader>fg", ":Telescope live_grep_args<cr>", keyopts)
+
+			keyopts.desc = "Grep string (cwd)" -- Grep String under Cursor
+			keymap.set("n", "<leader>fs", live_grep_args_shortcuts.grep_word_under_cursor, keyopts)
+
+			keyopts.desc = "Grep Selection (cwd)" -- Grep Visual Selection
+			keymap.set("v", "<leader>fs", live_grep_args_shortcuts.grep_visual_selection, keyopts)
 
 			keyopts.desc = "Buffers" -- Find Buffers
 			keymap.set("n", "<leader>fb", ":Telescope buffers<cr>", keyopts)
