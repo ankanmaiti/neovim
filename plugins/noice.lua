@@ -11,7 +11,7 @@ return {
 		require("noice").setup({
 			cmdline = {
 				messages = {
-					enabled = false,
+					enabled = true,
 				},
 			},
 			lsp = {
