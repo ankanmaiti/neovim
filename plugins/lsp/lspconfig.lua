@@ -48,10 +48,10 @@ return {
 
 			-- Diagnostics
 			keyopts.desc = "Document Diagnostics" -- Find Diagnostics (current buffer)
-			keymap.set("n", "<leader>cd", ":Telescope diagnostics bufnr=0 theme=dropdown<cr>", keyopts)
+			keymap.set("n", "<leader>cd", ":Telescope diagnostics bufnr=0<cr>", keyopts)
 
 			keyopts.desc = "Diagnostics" -- Find Diagnostics (CWD)
-			keymap.set("n", "<leader>fd", ":Telescope diagnostics theme=dropdown<cr>", keyopts)
+			keymap.set("n", "<leader>fd", ":Telescope diagnostics<cr>", keyopts)
 
 			keyopts.desc = "Show Line Diagnostics" -- Under Cursor
 			keymap.set("n", "<leader>cl", vim.diagnostic.open_float, keyopts)
