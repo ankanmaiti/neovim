@@ -18,9 +18,6 @@ return {
 				progress = {
 					enabled = false,
 				},
-				message = {
-					enabled = false,
-				},
 				-- override markdown rendering
 				-- so that **cmp** and other plugins use **Treesitter**
 				override = {
@@ -40,12 +37,10 @@ return {
 		})
 
 		-- keybindings
+		local keymap = vim.keymap -- for concisness
 		local keyopts = { noremap = true, silent = true }
 
-		keyopts.desc = "Dismiss Noice Popupmenu"
-		vim.keymap.set("n", "<leader>nd", ":NoiceDismiss<cr>", keyopts)
-
-		keyopts.desc = "Filter Noice"
-		vim.keymap.set("n", "<leader>nn", ":Telescope noice theme=dropdown<cr>", keyopts)
+		keyopts.desc = "Noice" -- Find Noice
+		keymap.set("n", "<leader>fn", ":Telescope noice theme=dropdown<cr>", keyopts)
 	end,
 }

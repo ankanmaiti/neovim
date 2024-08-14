@@ -21,9 +21,10 @@ return {
 			},
 		})
 		-- set keymap
+		local keymap = vim.keymap -- for concisness
 		local keyopts = { noremap = true, silent = true }
 
 		keyopts.desc = "Format Code"
-		vim.keymap.set({ "n", "v" }, "<leader>cf", vim.lsp.buf.format, keyopts)
+		keymap.set({ "n", "v" }, "<leader>cf", vim.lsp.buf.format, keyopts)
 	end,
 }

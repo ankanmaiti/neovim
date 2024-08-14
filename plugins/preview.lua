@@ -9,10 +9,11 @@ return {
 		end,
 		config = function()
 			-- setup keybindings
+			local keymap = vim.keymap -- for concisness
 			local keyopts = { noremap = true, silent = true }
 
 			keyopts.desc = "Markdown Preview (toggle)"
-			vim.keymap.set("n", "<leader>cp", ":MarkdownPreviewToggle<CR>", keyopts)
+			keymap.set("n", "<leader>cp", ":MarkdownPreviewToggle<CR>", keyopts)
 		end,
 	},
 }

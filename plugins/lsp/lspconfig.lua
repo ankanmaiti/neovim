@@ -23,42 +23,42 @@ return {
 			-- set keybinds
 			-- Go to
 			keyopts.desc = "Go to definitions"
-			keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", keyopts)
+			keymap.set("n", "gd", ":Telescope lsp_definitions<cr>", keyopts)
 
 			keyopts.desc = "Show LSP implementations"
-			keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<cr>", keyopts)
+			keymap.set("n", "gi", ":Telescope lsp_implementations<cr>", keyopts)
 
 			keyopts.desc = "Show LSP type definitions"
-			keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>", keyopts)
+			keymap.set("n", "gt", ":Telescope lsp_type_definitions<cr>", keyopts)
 
 			keyopts.desc = "See Code Actions"
 			keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, keyopts)
 
 			-- lsp incoming calls
 			keyopts.desc = "Where the function invoked under the cursor"
-			keymap.set({ "n", "v" }, "<leader>ci", "<cmd>Telescope lsp_incoming_calls<cr>", keyopts)
+			keymap.set({ "n", "v" }, "<leader>ci", ":Telescope lsp_incoming_calls<cr>", keyopts)
 
 			-- lsp outgoing calls
 			keyopts.desc = "Where the function calls other functions"
-			keymap.set({ "n", "v" }, "<leader>co", "<cmd>Telescope lsp_outgoing_calls<cr>", keyopts)
+			keymap.set({ "n", "v" }, "<leader>co", ":Telescope lsp_outgoing_calls<cr>", keyopts)
 
 			-- Rename
 			keyopts.desc = "Smart Rename"
 			keymap.set({ "n", "v" }, "<leader>cr", vim.lsp.buf.rename, keyopts)
 
 			-- Diagnostics
-			keyopts.desc = "Document Diagnostics"
-			keymap.set("n", "<leader>cd", "<cmd>Telescope diagnostics bufnr=0<cr>", keyopts)
+			keyopts.desc = "Document Diagnostics" -- Find Diagnostics (current buffer)
+			keymap.set("n", "<leader>cd", ":Telescope diagnostics bufnr=0 theme=dropdown<cr>", keyopts)
 
-			keyopts.desc = "Find Diagnostics"
-			keymap.set("n", "<leader>fd", "<cmd>Telescope diagnostics<cr>", keyopts)
+			keyopts.desc = "Diagnostics" -- Find Diagnostics (CWD)
+			keymap.set("n", "<leader>fd", ":Telescope diagnostics theme=dropdown<cr>", keyopts)
 
-			keyopts.desc = "Show Line Diagnostics"
+			keyopts.desc = "Show Line Diagnostics" -- Under Cursor
 			keymap.set("n", "<leader>cl", vim.diagnostic.open_float, keyopts)
 
 			-- inlay hints
 			keyopts.desc = "Inlay Hints (toggle)"
-			vim.keymap.set("n", "<leader>ch", function()
+			keymap.set("n", "<leader>ch", function()
 				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 			end, keyopts)
 		end

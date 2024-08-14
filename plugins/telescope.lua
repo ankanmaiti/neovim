@@ -7,7 +7,7 @@ return {
 			"nvim-tree/nvim-web-devicons",
 			"folke/noice.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-			{ "nvim-telescope/telescope-live-grep-args.nvim", version = "^1.0.0" },
+			{ "nvim-telescope/telescope-live-grep-args.nvim", version = "*" },
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 		},
 
@@ -40,27 +40,27 @@ return {
 			local keymap = vim.keymap -- for concisness
 			local keyopts = { noremap = true, silent = true }
 
-			keyopts.desc = "Find Files (cwd)"
-			keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", keyopts)
+			keyopts.desc = "Files (cwd)" -- Find files
+			keymap.set("n", "<leader>ff", ":Telescope find_files<cr>", keyopts)
 
-			keyopts.desc = "Find Recent Files"
-			keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", keyopts)
+			keyopts.desc = "Recent Files" -- Find Recent Files
+			keymap.set("n", "<leader>fr", ":Telescope oldfiles cwd_only=true<cr>", keyopts)
 
-			keyopts.desc = "Live Grep (cwd)"
-			keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep_args<cr>", keyopts)
+			keyopts.desc = "Live Grep (cwd)" -- Find Live Grep
+			keymap.set("n", "<leader>fg", ":Telescope live_grep_args theme=dropdown<cr>", keyopts)
 
-			keyopts.desc = "Live Grep (selected string) (cwd)"
-			keymap.set({ "n", "v" }, "<leader>fs", "<cmd>Telescope grep_string<cr>", keyopts)
-
-			keyopts.desc = "Find Buffers"
+			keyopts.desc = "Buffers" -- Find Buffers
 			keymap.set("n", "<leader>fb", ":Telescope buffers<cr>", keyopts)
 
-			keyopts.desc = "Find Quickfix"
+			keyopts.desc = "Quickfix" -- Find Quickfix
 			keymap.set("n", "<leader>fq", ":Telescope quickfix<cr>", keyopts)
 			keymap.set("n", "<leader>cq", ":Telescope quickfix<cr>", keyopts)
 
-			keyopts.desc = "Find Keymaps"
-			vim.keymap.set("n", "<leader>fk", ":Telescope keymaps<cr>", keyopts)
+			keyopts.desc = "Marks" -- Find Glbal Marks
+			keymap.set("n", "<leader>fm", ":Telescope marks mark_type=global<cr>", keyopts)
+
+			keyopts.desc = "Keymaps" -- Find Keymaps
+			keymap.set("n", "<leader>fk", ":Telescope keymaps<cr>", keyopts)
 		end,
 	},
 }

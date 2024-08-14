@@ -23,10 +23,11 @@ return {
 	-- 	},
 	-- 	init = function()
 	-- 		--setup keymap
+	-- 		local keymap = vim.keymap -- for concisness
 	-- 		local keyopts = { noremap = true, silent = true }
 	--
 	-- 		keyopts.desc = "File Explorer"
-	-- 		vim.keymap.set("n", "<leader>e", ":Neotree toggle<cr>", keyopts)
+	-- 		keymap.set("n", "<leader>e", ":Neotree toggle<cr>", keyopts)
 	-- 	end,
 	-- },
 	{
@@ -76,10 +77,11 @@ return {
 			})
 
 			--setup keymap
+			local keymap = vim.keymap -- for concisness
 			local keyopts = { noremap = true, silent = true }
 
 			keyopts.desc = "Open parent directory"
-			vim.keymap.set("n", "-", ":Oil --float<cr>", keyopts)
+			keymap.set("n", "-", ":Oil --float<cr>", keyopts)
 		end,
 	},
 }

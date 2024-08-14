@@ -31,30 +31,32 @@ return {
 		end
 
 		-- setup keymaps
+		local keymap = vim.keymap -- for concisness
 		local opts = { noremap = true, silent = true }
 
 		opts.desc = "harpoon list"
-		vim.keymap.set("n", "<leader>hl", function()
+		keymap.set("n", "<leader>hl", function()
 			toggle_telescope(harpoon:list())
 		end, opts)
 
 		opts.desc = "add mark"
-		vim.keymap.set("n", "<leader>ha", function()
+		keymap.set("n", "<leader>ha", function()
 			harpoon:list():add()
 		end, opts)
 
 		-- Toggle previous & next buffers stored within Harpoon list
 		opts.desc = "prev mark"
-		vim.keymap.set("n", "<leader>hp", function()
+		keymap.set("n", "<leader>hp", function()
 			harpoon:list():prev()
 		end, opts)
 
 		opts.desc = "next mark"
-		vim.keymap.set("n", "<leader>hn", function()
+		keymap.set("n", "<leader>hn", function()
 			harpoon:list():next()
 		end, opts)
 
-		vim.keymap.set("n", "<leader><leader>", function()
+		opts.desc = "harpoon menu"
+		keymap.set("n", "<leader><leader>", function()
 			harpoon.ui:toggle_quick_menu(harpoon:list())
 		end, opts)
 	end,
