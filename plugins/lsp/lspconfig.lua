@@ -59,7 +59,8 @@ return {
 			-- inlay hints
 			keyopts.desc = "Inlay Hints (toggle)"
 			keymap.set("n", "<leader>ch", function()
-				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+				local is_enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr })
+				vim.lsp.inlay_hint.enable(not is_enabled, { bufnr = bufnr })
 			end, keyopts)
 		end
 
