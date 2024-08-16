@@ -10,15 +10,15 @@ keymap.set("n", "<S-h>", ":bprevious<CR>", keyopts)
 
 -- split window vertically
 keyopts.desc = "vertical split"
-keymap.set({ "n", "v" }, "<leader>wv", ":vsplit<CR>", keyopts)
+keymap.set("n", "<leader>wv", ":vsplit<CR>", keyopts)
 
 -- split window horizontally
 keyopts.desc = "horizontally split"
-keymap.set({ "n", "v" }, "<leader>ws", ":split<CR>", keyopts)
+keymap.set("n", "<leader>ws", ":split<CR>", keyopts)
 
 -- close window
 keyopts.desc = "close window"
-keymap.set({ "n", "v" }, "<leader>wc", ":close<CR>", keyopts)
+keymap.set("n", "<leader>wc", ":close<CR>", keyopts)
 
 -- Better window navigation
 keyopts.desc = "Windows Navigation"
