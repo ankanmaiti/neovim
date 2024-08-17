@@ -2,7 +2,7 @@ return {
 	{
 		"echasnovski/mini.indentscope",
 		version = "*", -- wait till new 0.7.0 release to put it back on semver
-		event = "VeryLazy",
+		event = "BufReadPost",
 		opts = {
 			symbol = "▏",
 			-- symbol = "│",
@@ -31,7 +31,7 @@ return {
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		event = "VeryLazy",
+		event = "BufReadPost",
 		opts = {
 			indent = {
 				char = "▏",

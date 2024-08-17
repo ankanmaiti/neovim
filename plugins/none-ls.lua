@@ -1,6 +1,6 @@
 return {
 	"nvimtools/none-ls.nvim",
-	event = "VeryLazy",
+	event = "BufReadPost",
 	dependencies = {
 		"nvimtools/none-ls-extras.nvim",
 	},

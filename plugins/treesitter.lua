@@ -1,6 +1,7 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
+	event = "BufReadPost",
 	opts = {
 		highlight = { enable = true, additional_vim_regex_highlighting = false },
 		indent = { enable = true },
@@ -15,9 +16,9 @@ return {
 			"vim",
 			"yaml",
 			"sql",
-      "php",
-      "tmux",
-      "vim"
+			"php",
+			"tmux",
+			"vim",
 		},
 		incremental_selection = {
 			enable = true,

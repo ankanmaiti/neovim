@@ -1,19 +1,22 @@
 return {
-  -- integrates the completion engine with LSP
+	-- integrates the completion engine with LSP
 	{
 		"hrsh7th/cmp-nvim-lsp",
+		event = "InsertEnter",
 	},
-  -- provides snippet support
+	-- provides snippet support
 	{
 		"L3MON4D3/LuaSnip",
+		event = "InsertEnter",
 		dependencies = {
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
 		},
 	},
-  -- core completion engine
+	-- core completion engine
 	{
 		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
 		config = function()
 			local cmp = require("cmp")
 			require("luasnip.loaders.from_vscode").lazy_load()
@@ -51,7 +54,7 @@ return {
 	-- command line auto-compleation
 	{
 		"hrsh7th/cmp-cmdline",
-		event = "VeryLazy",
+		event = "CmdlineEnter",
 
 		config = function()
 			local cmp = require("cmp")

@@ -1,5 +1,6 @@
 return {
 	"mbbill/undotree",
+	event = "BufReadPost",
 	config = function()
 		local keymap = vim.keymap -- for concisness
 		local opts = { noremap = true, silent = true }

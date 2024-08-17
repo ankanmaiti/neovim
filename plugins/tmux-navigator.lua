@@ -1,5 +1,6 @@
 return {
 	"christoomey/vim-tmux-navigator",
+  event = "VeryLazy",
 
 	config = function()
 		local keymap = vim.keymap -- for concisness

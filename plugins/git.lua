@@ -2,7 +2,7 @@ return {
 	-- git signes
 	{
 		"lewis6991/gitsigns.nvim",
-		event = "VeryLazy",
+		event = "BufReadPost",
 
 		config = function()
 			local gitsigns = require("gitsigns")
