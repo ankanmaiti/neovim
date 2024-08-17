@@ -40,6 +40,9 @@ return {
 		local keymap = vim.keymap -- for concisness
 		local keyopts = { noremap = true, silent = true }
 
+		keyopts.desc = "Noice Dismiss" -- Find Noice
+		keymap.set("n", "<esc>", ":Noice dismiss<cr>", keyopts)
+
 		keyopts.desc = "Noice" -- Find Noice
 		keymap.set("n", "<leader>fn", ":Telescope noice theme=dropdown<cr>", keyopts)
 	end,
